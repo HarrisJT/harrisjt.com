@@ -1,0 +1,52 @@
+### Node
+# Logs
+logs
+*.log
+
+# Compiled binary addons (https://nodejs.org/api/addons.html)
+build/Release
+
+# npm dependencies
+node_modules/
+
+# Optional npm cache directory
+.npm
+
+# gatsby cache
+.cache/
+
+# gatsby build files
+public/
+
+# dotenv environment variables file
+.env
+
+### JetBrains
+.idea/
+
+### Windows
+# Windows thumbnail cache files
+Thumbs.db
+ehthumbs.db
+ehthumbs_vista.db
+
+# Dump file
+*.stackdump
+
+# Folder config file
+[Dd]esktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
+### PERSONAL IGNORES
+TODO.md

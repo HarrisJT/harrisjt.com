@@ -1,0 +1,236 @@
+import React from 'react';
+import Link from 'gatsby-link';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+
+import { colors, convertHexToRgba, fonts } from '../css/variables';
+import Header from '../components/Header';
+import Navigation from '../components/Navigation';
+import TitleAndMetaTags from '../components/TitleAndMetaTags';
+import { fadeIn, moveUp } from '../css/animations';
+
+const Form = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 3vw auto;
+  padding: 3vw 0;
+  background: #fff;
+  max-width: calc(745px + 3vw);
+  will-change: opacity;
+  animation: ${fadeIn} 450ms cubic-bezier(0.67, 0, 0.67, 1),
+    ${moveUp} 450ms cubic-bezier(0.33, 0, 0, 1);
+`;
+
+const Input = styled.input`
+  font-size: 2.75em;
+  display: block;
+  width: 50%;
+  border: none;
+  border-bottom: 2px solid ${colors.border};
+  background-color: transparent;
+  outline: none;
+  margin-bottom: 1rem;
+  ${fonts.body} ::-webkit-input-placeholder {
+    opacity: 0.35;
+  }
+
+  :-moz-placeholder {
+    opacity: 0.35;
+  }
+
+  ::-moz-placeholder {
+    opacity: 0.35;
+  }
+
+  :-ms-input-placeholder {
+    opacity: 0.35;
+  }
+`;
+
+const SearchResultWrapper = styled.div`
+  padding: 0 1vw;
+  margin: 10px 2vw;
+  transition: background-color 100ms ease;
+
+  div {
+    display: flex;
+    align-items: center;
+    padding-top: 1rem;
+  }
+
+  h2 {
+    margin: 0;
+    transition: opacity 100ms ease;
+  }
+
+  .date-published {
+    color: ${colors.textLight};
+  }
+
+  p {
+    color: ${colors.textLight};
+    margin: 5px 0 0;
+    padding-bottom: 1em;
+  }
+
+  &:hover {
+    background-color: ${convertHexToRgba(colors.accentLight, 0.075)};
+
+    h2 {
+      opacity: 0.75;
+    }
+  }
+`;
+
+const pagesContaining = term =>
+  function(x) {
+    return (
+      x.node.frontmatter.title.toLowerCase().includes(term.toLowerCase()) ||
+      x.node.excerpt.toLowerCase().includes(term.toLowerCase()) ||
+      !term
+    );
+  };
+
+/* eslint-disable react/jsx-closing-tag-location, jsx-a11y/anchor-is-valid */
+const SearchResults = ({ term, pages }) => (
+  <div>
+    {pages
+      .filter(pagesContaining(term))
+      .map(page => (
+        <SearchResultWrapper key={page.node.id}>
+          <Link to={page.node.fields.slug}>
+            <div>
+              <h2>{page.node.frontmatter.title}</h2>
+              {page.node.frontmatter.type === `article` && (
+                <span className="dot-separator" />
+              )}
+              {page.node.frontmatter.type === `article` && (
+                <span className="date-published">
+                  {page.node.frontmatter.datePublished}
+                </span>
+              )}
+            </div>
+            <p>{page.node.excerpt}</p>
+          </Link>
+        </SearchResultWrapper>
+      ))
+      .slice(0, 15)}
+  </div>
+);
+/* eslint-enable react/jsx-closing-tag-location, jsx-a11y/anchor-is-valid */
+
+SearchResults.propTypes = {
+  term: PropTypes.string,
+  pages: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
+
+SearchResults.defaultProps = {
+  term: ``,
+};
+
+class Search extends React.PureComponent {
+  static handleEnter(event) {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+    }
+  }
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      term: ``,
+    };
+    this.meta = this.props.data.site.siteMetadata;
+    this.pages = this.props.data.allMarkdownRemark.edges;
+    this.searchHandler = this.searchHandler.bind(this);
+  }
+
+  searchHandler(event) {
+    this.setState({
+      term: event.target.value,
+    });
+  }
+
+  render() {
+    return (
+      <div>
+        <TitleAndMetaTags
+          author={this.meta.author}
+          description={this.meta.description}
+          facebookAppId={this.meta.facebookAppId}
+          logo={{
+            url: `${this.meta.siteUrl}/logo-share.png`,
+            width: 1024,
+            height: 1024,
+          }}
+          publisher={this.meta.author}
+          title={`Search – ${this.meta.title}`}
+          twitterHandle={this.meta.twitterHandle}
+          url={this.meta.siteUrl}
+        />
+        <Header />
+        <Navigation searchPage />
+        <Form>
+          <Input
+            type="text"
+            aria-label="Search"
+            onChange={this.searchHandler}
+            onKeyDown={this.handleEnter}
+            placeholder="Search..."
+            title="Type search term here"
+            autoFocus
+          />
+          <SearchResults term={this.state.term} pages={this.pages} />
+        </Form>
+      </div>
+    );
+  }
+}
+
+Search.propTypes = {
+  data: PropTypes.shape({
+    allMarkdownRemark: PropTypes.object.isRequired,
+    site: PropTypes.object.isRequired,
+  }).isRequired,
+};
+
+export default Search;
+
+// eslint-disable-next-line
+export const pageQuery = graphql`
+  query SearchQuery {
+    site {
+      siteMetadata {
+        author
+        description
+        facebookAppId
+        title
+        twitterHandle
+        siteUrl
+        email
+      }
+    }
+    allMarkdownRemark(
+      limit: 1000
+      filter: {frontmatter: {draft: {ne: true}}}
+      sort: {order: DESC, fields: [frontmatter___datePublished]}
+    ) {
+      edges {
+        node {
+          excerpt(pruneLength: 250)
+          id
+          fields {
+            slug
+          }
+          frontmatter {
+            datePublished(formatString: "MMMM DD, YYYY")
+            title
+            type
+          }
+        }
+      }
+    }
+  }
+`;

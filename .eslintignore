@@ -1,0 +1,9 @@
+.idea/
+node_modules/
+
+# Ignore markdown files
+**/*.md
+
+# Ignore built files
+public/
+.cache/
