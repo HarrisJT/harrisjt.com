@@ -108,7 +108,7 @@ const SearchResults = ({ term, pages }) => (
               )}
               {page.node.frontmatter.type === `article` && (
                 <span className="date-published">
-                  {page.node.frontmatter.datePublished}
+                  {page.node.frontmatter.date}
                 </span>
               )}
             </div>
@@ -215,7 +215,7 @@ export const pageQuery = graphql`
     allMarkdownRemark(
       limit: 1000
       filter: {frontmatter: {draft: {ne: true}}}
-      sort: {order: DESC, fields: [frontmatter___datePublished]}
+      sort: {fields: [frontmatter___date], order: DESC}
     ) {
       edges {
         node {
@@ -225,7 +225,7 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
-            datePublished(formatString: "MMMM DD, YYYY")
+            date(formatString: "MMMM DD, YYYY")
             title
             type
           }

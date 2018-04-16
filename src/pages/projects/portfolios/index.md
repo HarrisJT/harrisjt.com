@@ -2,7 +2,7 @@
 draft: false
 title: Portfolios
 type: project
-datePublished: 2015-06
+date: 2015-06
 role: Developer & Designer
 titleImage: thirdhome-port.jpg
 imageAlt: Each portfolio homepage

@@ -59,7 +59,7 @@ const Post = ({ data, pathContext }) => {
     <div>
       <TitleAndMetaTags
         author={meta.author}
-        datePublished={post.frontmatter.datePublished}
+        date={post.frontmatter.date}
         description={meta.description}
         facebookAppId={meta.facebookAppId}
         image={{ url: seoImage, width: 800, height: 600 }}
@@ -80,7 +80,7 @@ const Post = ({ data, pathContext }) => {
         <PostHeader
           title={post.frontmatter.title}
           type={post.frontmatter.type}
-          datePublished={post.frontmatter.datePublished}
+          date={post.frontmatter.date}
           dateModified={
             post.frontmatter.dateModified ? post.frontmatter.dateModified : null
           }
@@ -135,7 +135,7 @@ export const pageQuery = graphql`
         slug
       }
       frontmatter {
-        datePublished(formatString: "MMMM DD, YYYY")
+        date(formatString: "MMMM DD, YYYY")
         dateModified(formatString: "MMMM DD, YYYY")
         role
         seoImage {

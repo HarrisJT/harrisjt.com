@@ -2,7 +2,7 @@
 draft: true
 title: Test
 type: article
-datePublished: 2018-03-24
+date: 2018-03-24
 dateModified: 2018-04-15
 titleImage: home-ftb.jpg
 imageAlt: etc

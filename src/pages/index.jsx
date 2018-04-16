@@ -15,7 +15,7 @@ const Index = ({ data }) => {
   const meta = data.site.siteMetadata;
   const posts = data.allMarkdownRemark.edges.map(({ node }) => {
     return {
-      date: node.frontmatter.datePublished,
+      date: node.frontmatter.date,
       excerpt: node.excerpt,
       id: node.id,
       titleImage: node.frontmatter.titleImage,
@@ -80,7 +80,7 @@ export const pageQuery = graphql`
     allMarkdownRemark(
       limit: 100
       filter: {frontmatter: {draft: {ne: true}}}
-      sort: {order: DESC, fields: [frontmatter___datePublished]}
+      sort: {fields: [frontmatter___date], order: DESC}
     ) {
       edges {
         node {
@@ -90,7 +90,7 @@ export const pageQuery = graphql`
             path
           }
           frontmatter {
-            datePublished(formatString: "MMMM DD, YYYY")
+            date(formatString: "MMMM DD, YYYY")
             imageAlt
             title
             titleImage {

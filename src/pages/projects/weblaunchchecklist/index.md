@@ -2,7 +2,7 @@
 draft: false
 title: WebLaunchChecklist
 type: project
-datePublished: 2017-05
+date: 2017-05
 role: Developer & Designer
 titleImage: overview-screenshot-wlc.jpg
 imageAlt: WebLaunchChecklist homepage

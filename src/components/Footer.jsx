@@ -39,12 +39,14 @@ const Info = styled.div`
 const Footer = props => {
   // Make sure the text is the first param key, the title gets added there
   /* eslint-disable no-undef */
+
+  const location = typeof window !== `undefined` && window.location.href;
   const twitter = {
     name: `Twitter`,
     shareUrl: `https://twitter.com/intent/tweet/`,
     params: {
       text: ``,
-      url: window.location.href,
+      url: location,
       via: props.twitterHandle,
     },
   };
@@ -54,7 +56,7 @@ const Footer = props => {
     params: {
       quote: ``,
       app_id: props.facebookAppId,
-      href: window.location.href,
+      href: location,
       display: `popup`,
       redirect_uri: `https://harrisjt.com`,
     },
@@ -65,7 +67,7 @@ const Footer = props => {
     params: {
       title: ``,
       mini: true,
-      url: window.location.href,
+      url: location,
     },
   };
   /* eslint-enable no-undef */

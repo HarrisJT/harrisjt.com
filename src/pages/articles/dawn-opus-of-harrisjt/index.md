@@ -2,7 +2,7 @@
 draft: false
 title: Dawn Opus of HarrisJT
 type: article
-datePublished: 2018-04-15
+date: 2018-04-15
 titleImage: main.jpg
 imageAlt: my personal logo
 seoImage: share.jpg

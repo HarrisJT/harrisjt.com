@@ -41,7 +41,7 @@ const TitleAndMetaTags = props => {
         name: props.author,
       },
       description: props.description,
-      datePublished: props.datePublished,
+      date: props.date,
     },
     website: {
       '@context': `https://schema.org`,
@@ -71,7 +71,7 @@ const TitleAndMetaTags = props => {
 
 TitleAndMetaTags.propTypes = {
   author: PropTypes.string,
-  datePublished: PropTypes.string,
+  date: PropTypes.string,
   description: PropTypes.string,
   facebookAppId: PropTypes.string,
   image: PropTypes.shape({
@@ -105,7 +105,7 @@ TitleAndMetaTags.propTypes = {
 
 TitleAndMetaTags.defaultProps = {
   author: null,
-  datePublished: null,
+  date: null,
   description: `Software Development, Design, and more, by HarrisJT`,
   facebookAppId: null,
   image: {

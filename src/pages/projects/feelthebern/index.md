@@ -2,7 +2,7 @@
 draft: false
 title: FeelTheBern
 type: project
-datePublished: 2016-03
+date: 2016-03
 role: Developer, Designer & Project Manager
 titleImage: overview-screenshot-ftb.jpg
 imageAlt: FeelTheBern.org homepage

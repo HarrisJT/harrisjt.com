@@ -39,9 +39,7 @@ const PostHeader = props => (
   <Root>
     <h1>{props.title}</h1>
     <Stats>
-      <time dateTime={new Date(props.datePublished).toISOString()}>
-        {props.datePublished}
-      </time>
+      <time dateTime={new Date(props.date).toISOString()}>{props.date}</time>
       <span className="dot-separator" />
       {props.type === `article` && (
         <span>{`${props.timeToRead} minute read`}</span>
@@ -60,7 +58,7 @@ const PostHeader = props => (
 
 PostHeader.propTypes = {
   dateModified: PropTypes.string,
-  datePublished: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
   role: PropTypes.string,
   timeToRead: PropTypes.number,
   title: PropTypes.string.isRequired,
