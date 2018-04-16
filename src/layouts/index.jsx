@@ -6,8 +6,8 @@ import Footer from '../components/Footer'
 import config from '../../gatsby-config'
 import '../css/global'
 
-import "typeface-open-sans"
-import "typeface-asul"
+import 'typeface-open-sans'
+import 'typeface-asul'
 
 require(`prismjs/themes/prism.css`) // eslint-disable-line import/no-extraneous-dependencies
 
@@ -22,7 +22,7 @@ const Template = props => {
     overflow: auto;
     justify-content: space-between;
     height: 100vh;
-  `
+  `;
 
   return (
     <Main>
@@ -35,11 +35,11 @@ const Template = props => {
         facebookAppId={meta.facebookAppId}
       />
     </Main>
-  )
-}
+  );
+};
 
 Template.propTypes = {
   children: PropTypes.func.isRequired,
-}
+};
 
 export default Template
