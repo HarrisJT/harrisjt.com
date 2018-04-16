@@ -1,17 +1,18 @@
-import PropTypes from 'prop-types';
-import React from 'react';
-import styled from 'styled-components';
+import PropTypes from 'prop-types'
+import React from 'react'
+import styled from 'styled-components'
 
-import Footer from '../components/Footer';
-import config from '../../gatsby-config';
-import '../css/global';
+import Footer from '../components/Footer'
+import config from '../../gatsby-config'
+import '../css/global'
 
-require(`typeface-open-sans`);
-require(`typeface-asul`);
-require(`prismjs/themes/prism.css`); // eslint-disable-line import/no-extraneous-dependencies
+import "typeface-open-sans"
+import "typeface-asul"
+
+require(`prismjs/themes/prism.css`) // eslint-disable-line import/no-extraneous-dependencies
 
 const Template = props => {
-  const meta = config.siteMetadata;
+  const meta = config.siteMetadata
 
   // scroll-to-top fix on page navigation
   const Main = styled.main`
@@ -21,7 +22,7 @@ const Template = props => {
     overflow: auto;
     justify-content: space-between;
     height: 100vh;
-  `;
+  `
 
   return (
     <Main>
@@ -34,11 +35,11 @@ const Template = props => {
         facebookAppId={meta.facebookAppId}
       />
     </Main>
-  );
-};
+  )
+}
 
 Template.propTypes = {
   children: PropTypes.func.isRequired,
-};
+}
 
-export default Template;
+export default Template
