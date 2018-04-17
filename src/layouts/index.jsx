@@ -1,13 +1,14 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components'
+// eslint-disable-next-line import/extensions
+import 'typeface-open-sans'
+// eslint-disable-next-line import/extensions
+import 'typeface-asul'
 
 import Footer from '../components/Footer'
 import config from '../../gatsby-config'
 import '../css/global'
-
-import 'typeface-open-sans'
-import 'typeface-asul'
 
 require(`prismjs/themes/prism.css`) // eslint-disable-line import/no-extraneous-dependencies
 
