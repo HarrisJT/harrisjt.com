@@ -1,9 +1,9 @@
-import Link from 'gatsby-link'
-import React from 'react'
-import styled from 'styled-components'
-import logo from '../../static/logo-header.svg'
+import Link from 'gatsby-link';
+import React from 'react';
+import styled from 'styled-components';
+import logo from '../../static/logo-header.svg';
 
-import { breakpoints, colors, sizes } from '../css/variables'
+import { breakpoints, colors, sizes } from '../css/variables';
 
 const Root = styled.header`
   overflow: hidden;
@@ -30,6 +30,11 @@ const Root = styled.header`
     margin: 0;
     font-size: 0.9rem;
   }
+  
+  img {
+    padding: 20px 5px;
+    width: 120px;
+  }
 `;
 
 const Title = styled.h1`
@@ -43,7 +48,7 @@ export default function Header() {
   return (
     <Root>
       <Link href="/" to="/" role="button" aria-label="Navigate to homepage">
-        <img src={logo} alt="" width="115px" />
+        <img src={logo} alt="harrisjt logo"/>
       </Link>
       <Link href="/" to="/">
         <div>

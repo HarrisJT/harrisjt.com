@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 435 245">
+  <defs>
+    <style>
+      .a{fill:#151416;}
+    </style>
+  </defs>
+  <rect width="65" height="245" x="60" class="a" rx="3" ry="3"/>
+  <rect width="65" height="245" x="185" class="a" rx="3" ry="3"/>
+  <rect width="65" height="155" x="310" y="89.884" class="a" rx="3" ry="3"/>
+  <path d="M0 240.51v-63.602a3 3 0 0 1 1.88-2.784l429-172.435A3 3 0 0 1 435 4.47v63.5a3 3 0 0 1-1.88 2.784l-429 172.537A3 3 0 0 1 0 240.51z" class="a"/>
+</svg>
