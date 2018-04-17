@@ -16,7 +16,7 @@ I love to build on a platform that is usable to a hard-of-sight rural viewer wit
 
 ### What is harrisjt.com made from?
 
-Well, React together with Gatsby mostly, but also with the help of Styled-Components, SCSS and plain old vanilla javascript. Keeping the site static while also harboring the power of React and Markdown tempted me away from the cave of vanilla javascript, css, and html, which all my previous portfolios were built from. Not that I dislike libraries, there is always a use case and need for a single trusted dependency that handles security and edge cases. To see some of the specific dependencies for this website, visit the [package.json](https://github.com/harrisjt/harrisjt.com) file on github.
+Well, React together with Gatsby mostly, but also with the help of Styled-Components, SCSS and plain old vanilla javascript. Keeping the site static while also harboring the power of React and Markdown tempted me away from the cave of vanilla javascript, css, and html, which all my previous portfolios were built from. Not that I dislike libraries, there is always a use case and need for a single trusted dependency that handles security and edge cases. To see some of the specific dependencies for this website, visit the [package.json](https://github.com/HarrisJT/harrisjt.com/blob/master/package.json) file on github.
 
 The [complete code](https://github.com/harrisjt/harrisjt.com) for this website is available to anyone with internet access. I have always made my portfolio public because this serves multiple purposes:
 
