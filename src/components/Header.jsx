@@ -1,9 +1,9 @@
-import Link from 'gatsby-link';
-import React from 'react';
-import styled from 'styled-components';
-import logo from '../../static/logo-128.png';
+import Link from 'gatsby-link'
+import React from 'react'
+import styled from 'styled-components'
+import logo from '../../static/logo-header.svg'
 
-import { breakpoints, colors, sizes } from '../css/variables';
+import { breakpoints, colors, sizes } from '../css/variables'
 
 const Root = styled.header`
   overflow: hidden;

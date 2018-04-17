@@ -40,7 +40,6 @@ module.exports = {
         ],
       },
     },
-    // list after gatsby-plugin-manifest
     `gatsby-plugin-react-next`,
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-catch-links`,
@@ -59,22 +58,22 @@ module.exports = {
         display: `minimal-ui`,
         icons: [
           {
-            src: `/logo-128-v2.png`,
+            src: `/logo-128.png`,
             sizes: `128x128`,
             type: `image/png`,
           },
           {
-            src: `/logo-158-v2.png`,
+            src: `/logo-158.png`,
             sizes: `158x158`,
             type: `image/png`,
           },
           {
-            src: `/logo-197-v2.png`,
+            src: `/logo-197.png`,
             sizes: `197x197`,
             type: `image/png`,
           },
           {
-            src: `/logo-512-v2.png`,
+            src: `/logo-512.png`,
             sizes: `512x512`,
             type: `image/png`,
           },
