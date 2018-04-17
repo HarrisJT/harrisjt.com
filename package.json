@@ -68,7 +68,7 @@
     "gatsby-transformer-sharp": "1.6.22",
     "prop-types": "15.6.1",
     "react-helmet": "5.2.0",
-    "styled-components": "3.2.5",
+    "styled-components": "3.2.6",
     "typeface-asul": "0.0.54",
     "typeface-open-sans": "0.0.54"
   },
@@ -84,7 +84,7 @@
     "netlify": "1.2.0",
     "npm-run-all": "4.1.2",
     "pre-commit": "1.2.2",
-    "prettier": "1.12.0",
+    "prettier": "1.12.1",
     "prettier-eslint-cli": "4.7.1"
   },
   "license": "MIT"
