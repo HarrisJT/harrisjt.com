@@ -1,19 +1,19 @@
-import PropTypes from 'prop-types'
-import React from 'react'
-import styled from 'styled-components'
+import PropTypes from 'prop-types';
+import React from 'react';
+import styled from 'styled-components';
 // eslint-disable-next-line import/extensions
-import 'typeface-open-sans'
+import 'typeface-open-sans';
 // eslint-disable-next-line import/extensions
-import 'typeface-asul'
+import 'typeface-asul';
 
-import Footer from '../components/Footer'
-import config from '../../gatsby-config'
-import '../css/global'
+import Footer from '../components/Footer';
+import config from '../../gatsby-config';
+import '../css/global';
 
-require(`prismjs/themes/prism.css`) // eslint-disable-line import/no-extraneous-dependencies
+require(`prismjs/themes/prism.css`); // eslint-disable-line import/no-extraneous-dependencies
 
 const Template = props => {
-  const meta = config.siteMetadata
+  const meta = config.siteMetadata;
 
   // scroll-to-top fix on page navigation
   const Main = styled.main`
@@ -43,4 +43,4 @@ Template.propTypes = {
   children: PropTypes.func.isRequired,
 };
 
-export default Template
+export default Template;

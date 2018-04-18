@@ -30,7 +30,7 @@ const Root = styled.header`
     margin: 0;
     font-size: 0.9rem;
   }
-  
+
   img {
     padding: 20px 5px;
     width: 120px;
@@ -48,7 +48,7 @@ export default function Header() {
   return (
     <Root>
       <Link href="/" to="/" role="button" aria-label="Navigate to homepage">
-        <img src={logo} alt="harrisjt logo"/>
+        <img src={logo} alt="harrisjt logo" />
       </Link>
       <Link href="/" to="/">
         <div>
