@@ -159,6 +159,7 @@ class Search extends React.PureComponent {
         <TitleAndMetaTags
           author={this.meta.author}
           description={this.meta.description}
+          searchDescription={`Search – ${this.meta.description}`}
           facebookAppId={this.meta.facebookAppId}
           logo={{
             url: `${this.meta.siteUrl}/logo-share.png`,

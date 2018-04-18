@@ -69,6 +69,7 @@ const Post = ({ data, pathContext }) => {
           height: 1024,
         }}
         publisher={meta.author}
+        searchDescription={post.excerpt}
         title={`${post.frontmatter.title} – ${meta.title}`}
         twitterHandle={meta.twitterHandle}
         type="article"
@@ -130,6 +131,7 @@ export const pageQuery = graphql`
       fileAbsolutePath
       html
       timeToRead
+      excerpt(pruneLength: 250)
       fields {
         path
         slug

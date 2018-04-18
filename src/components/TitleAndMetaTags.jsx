@@ -4,6 +4,7 @@ import Helmet from 'react-helmet';
 
 const TitleAndMetaTags = props => {
   const tags = [
+    { name: `description`, content: props.searchDescription },
     { property: `fb:app_id`, content: props.facebookAppId },
     { property: `og:description`, content: props.description },
     { property: `og:image`, content: props.image.url },
@@ -85,6 +86,7 @@ TitleAndMetaTags.propTypes = {
     height: PropTypes.number,
   }),
   publisher: PropTypes.string,
+  searchDescription: PropTypes.string,
   title: PropTypes.string,
   twitterHandle: PropTypes.string,
   type: PropTypes.oneOf([
@@ -119,6 +121,9 @@ TitleAndMetaTags.defaultProps = {
     height: 1024,
   },
   publisher: `HarrisJT`,
+  searchDescription:
+    `Software developer and designer HarrisJT's website. ` +
+    `Specializing in performance, UX, and architecture.`,
   title: `HarrisJT`,
   twitterHandle: null,
   type: `website`,
