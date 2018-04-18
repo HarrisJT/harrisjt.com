@@ -26,16 +26,15 @@
     "build": "npm run purge && gatsby build --verbose",
     "deploy": "npm run format && npm run build && netlifyctl deploy",
     "dev": "gatsby develop",
-    "format": "npm-run-all purge -p format:js format:markdown",
+    "format": "npm-run-all -p format:*",
     "format:js": "prettier-eslint --config .prettierrc --write \"**/*.{js,jsx}\"",
     "format:markdown": "prettier --parser markdown --write \"**/*.md\"",
-    "precommit-msg": "echo 'Executing pre-commit scripts...' && exit 0",
-    "hook-install": "precommit install",
-    "hook-remove": "precommit remove",
+    "hook:install": "precommit install",
+    "hook:remove": "precommit remove",
     "purge": "del-cli public/ && del-cli .cache/"
   },
   "pre-commit": [
-    "precommit-msg",
+    "purge",
     "format"
   ],
   "resolutions": {
