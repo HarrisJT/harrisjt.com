@@ -24,7 +24,7 @@
   },
   "scripts": {
     "build": "npm run purge && gatsby build --verbose",
-    "deploy": "npm run format && npm run build && echo 'Ready to commit/push...' && exit 0",
+    "deploy": "npm run format && npm run build && netlifyctl deploy",
     "dev": "gatsby develop",
     "format": "npm-run-all purge -p format:js format:markdown",
     "format:js": "prettier-eslint --config .prettierrc --write \"**/*.{js,jsx}\"",
