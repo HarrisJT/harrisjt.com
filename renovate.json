@@ -8,7 +8,7 @@
   },
   "packageRules": [
     {
-      "packagePatterns": ["eslint*", "prettier*"],
+      "packagePatterns": ["^eslint", "^prettier"],
       "groupName": "linters"
     }
   ]
