@@ -6,9 +6,6 @@
   "major": {
     "automerge": false
   },
-  "devDependencies": {
-    "automerge": true
-  },
   "packageRules": [
     {
       "packagePatterns": ["eslint*", "prettier*"],
