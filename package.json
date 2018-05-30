@@ -44,7 +44,7 @@
   },
   "dependencies": {
     "babel-plugin-styled-components": "1.5.1",
-    "gatsby": "1.9.261",
+    "gatsby": "1.9.262",
     "gatsby-link": "1.6.44",
     "gatsby-plugin-catch-links": "1.0.22",
     "gatsby-plugin-favicon": "2.1.1",
@@ -60,7 +60,7 @@
     "gatsby-plugin-styled-components": "2.0.11",
     "gatsby-remark-copy-linked-files": "1.5.32",
     "gatsby-remark-images": "1.5.63",
-    "gatsby-remark-prismjs": "2.0.2",
+    "gatsby-remark-prismjs": "2.0.3",
     "gatsby-remark-smartypants": "1.4.12",
     "gatsby-source-filesystem": "1.5.36",
     "gatsby-transformer-remark": "1.7.41",
