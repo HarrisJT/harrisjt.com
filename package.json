@@ -68,7 +68,7 @@
     "prismjs": "1.14.0",
     "prop-types": "15.6.1",
     "react-helmet": "5.2.0",
-    "styled-components": "3.3.0",
+    "styled-components": "3.3.1",
     "typeface-asul": "0.0.54",
     "typeface-open-sans": "0.0.54"
   },
