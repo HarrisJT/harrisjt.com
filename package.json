@@ -73,7 +73,7 @@
     "typeface-open-sans": "0.0.54"
   },
   "devDependencies": {
-    "babel-eslint": "8.2.6",
+    "babel-eslint": "9.0.0",
     "del-cli": "1.1.0",
     "eslint": "5.4.0",
     "eslint-config-airbnb": "17.1.0",
