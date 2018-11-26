@@ -43,7 +43,7 @@
     "gatsby/react-dom": "16.0.0"
   },
   "dependencies": {
-    "babel-plugin-styled-components": "1.8.0",
+    "babel-plugin-styled-components": "1.9.0",
     "gatsby": "1.9.279",
     "gatsby-link": "1.6.46",
     "gatsby-plugin-catch-links": "1.0.26",
