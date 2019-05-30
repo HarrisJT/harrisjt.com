@@ -46,7 +46,7 @@
   },
   "dependencies": {
     "babel-plugin-styled-components": "1.10.0",
-    "gatsby": "2.0.0",
+    "gatsby": "2.0.84",
     "gatsby-link": "1.6.46",
     "gatsby-plugin-catch-links": "1.0.26",
     "gatsby-plugin-favicon": "2.1.1",
