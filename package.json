@@ -31,7 +31,9 @@
     "format:markdown": "prettier --parser markdown --write \"**/*.md\"",
     "hook:install": "precommit install",
     "hook:remove": "precommit remove",
-    "purge": "del-cli public/ && del-cli .cache/"
+    "purge": "del-cli public/ && del-cli .cache/",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "pre-commit": [
     "purge",
@@ -44,7 +46,7 @@
   },
   "dependencies": {
     "babel-plugin-styled-components": "1.10.0",
-    "gatsby": "1.9.279",
+    "gatsby": "2.0.0",
     "gatsby-link": "1.6.46",
     "gatsby-plugin-catch-links": "1.0.26",
     "gatsby-plugin-favicon": "2.1.1",
@@ -55,14 +57,14 @@
     "gatsby-plugin-offline": "1.0.18",
     "gatsby-plugin-react-helmet": "2.0.11",
     "gatsby-plugin-react-next": "1.0.11",
-    "gatsby-plugin-sharp": "1.6.48",
+    "gatsby-plugin-sharp": "2.0.31",
     "gatsby-plugin-sitemap": "1.2.25",
     "gatsby-plugin-styled-components": "2.0.11",
     "gatsby-remark-copy-linked-files": "1.5.37",
-    "gatsby-remark-images": "1.5.67",
+    "gatsby-remark-images": "2.0.1",
     "gatsby-remark-prismjs": "2.0.5",
     "gatsby-remark-smartypants": "1.4.12",
-    "gatsby-source-filesystem": "1.5.39",
+    "gatsby-source-filesystem": "2.0.22",
     "gatsby-transformer-remark": "1.7.44",
     "gatsby-transformer-sharp": "1.6.27",
     "prismjs": "1.16.0",
@@ -70,7 +72,8 @@
     "react-helmet": "5.2.1",
     "styled-components": "3.4.10",
     "typeface-asul": "0.0.69",
-    "typeface-open-sans": "0.0.54"
+    "typeface-open-sans": "0.0.54",
+    "snyk": "^1.170.0"
   },
   "devDependencies": {
     "babel-eslint": "10.0.1",
@@ -87,5 +90,6 @@
     "prettier": "1.17.1",
     "prettier-eslint-cli": "4.7.1"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "snyk": true
 }
