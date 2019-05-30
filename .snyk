@@ -1,0 +1,16 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.13.5
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  'npm:debug:20170905':
+    - gatsby-plugin-favicon > favicons-webpack-plugin > favicons > node-rest-client > debug:
+        patched: '2019-05-30T19:19:26.417Z'
+  'npm:lodash:20180130':
+    - gatsby > webpack-configurator > lodash:
+        patched: '2019-05-30T19:19:26.417Z'
+    - gatsby-plugin-favicon > favicons-webpack-plugin > favicons > cheerio > lodash:
+        patched: '2019-05-30T19:19:26.417Z'
+  'npm:ms:20170412':
+    - gatsby-plugin-favicon > favicons-webpack-plugin > favicons > node-rest-client > debug > ms:
+        patched: '2019-05-30T19:19:26.417Z'
