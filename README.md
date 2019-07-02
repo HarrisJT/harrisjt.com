@@ -1,5 +1,7 @@
 # HarrisJT.com
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/8f1d7fda-edfc-4b4a-bf86-e9825ee9fa1e/deploy-status)](https://app.netlify.com/sites/harrisjt/deploys)
+
 This repository contains the source code powering [harrisjt.com](https://harrisjt.com), the personal webpage of Harris J. Thompson.
 The website features mostly software project case studies and blog posts on various topics.
 
