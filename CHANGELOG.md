@@ -1,3 +1,11 @@
+<a name="1.0.1"></a>
+
+## [1.0.1](https://github.com/harrisjt/harrisjt.com/compare/v1.0.0...v1.0.1) (2019-07-02)
+
+### Bug Fixes
+
+- incorrect static graphql queries, layout wrapping ([6790c20](https://github.com/harrisjt/harrisjt.com/commit/6790c20))
+
 <a name="1.0.0"></a>
 
 # 1.0.0 (2019-07-02)
