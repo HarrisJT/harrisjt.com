@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-import Container from './Container';
-import { breakpoints, linkStyle, sizes } from '../css/variables';
+import Container from '../Container/Container';
+import {breakpoints, linkStyle, sizes} from '../../css/variables';
 
 const Root = styled.div`
   padding: ${sizes.medium} 1.5rem 0;

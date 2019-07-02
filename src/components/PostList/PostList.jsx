@@ -1,16 +1,10 @@
 import Link from 'gatsby-link';
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-
-import {
-  breakpoints,
-  colors,
-  convertHexToRgba,
-  fonts,
-  sizes,
-} from '../css/variables';
-import integerToRoman from '../utils/convertIntegerToRoman';
+import hex2rgba from 'hex2rgba';
+import {breakpoints, colors, fonts, sizes} from '../../css/variables';
+import integerToRoman from '../../utils/convertIntegerToRoman';
 
 const ButtonContainer = styled.div`
   padding: 1.5vw 1.5rem;
@@ -33,8 +27,7 @@ const Button = styled.button`
   font-weight: 600;
   background-color: ${colors.accent};
   color: #fff;
-  box-shadow: 0 4px 6px ${convertHexToRgba(colors.accent, 0.15)},
-    0 1px 3px rgba(0, 0, 0, 0.075);
+  box-shadow: 0 4px 6px ${hex2rgba(colors.accent, 0.15)}, 0 1px 3px rgba(0, 0, 0, 0.075);
   padding: 0 30px;
   height: 45px;
   letter-spacing: 0.055em;
@@ -51,18 +44,16 @@ const Button = styled.button`
   &:focus {
     background-color: ${colors.accentLight};
     transform: translateY(-1px);
-    box-shadow: 0 7px 14px ${convertHexToRgba(colors.accentLight, 0.1)},
-      0 3px 6px rgba(0, 0, 0, 0.075);
+    box-shadow: 0 7px 14px ${hex2rgba(colors.accentLight, 0.1)}, 0 3px 6px rgba(0, 0, 0, 0.075);
     outline: none;
   }
 
   &:active,
   &.active {
-    color: ${convertHexToRgba(`#ffffff`, 0.9)};
+    color: ${hex2rgba(`#ffffff`, 0.9)};
     background-color: ${colors.accentDark};
     transform: translateY(1px);
-    box-shadow: 0 4px 6px ${convertHexToRgba(colors.accentDark, 0.15)},
-      0 1px 3px rgba(0, 0, 0, 0.075);
+    box-shadow: 0 4px 6px ${hex2rgba(colors.accentDark, 0.15)}, 0 1px 3px rgba(0, 0, 0, 0.075);
   }
 `;
 
@@ -158,7 +149,7 @@ const Item = styled(Link)`
   }
 
   &:hover {
-    background-color: ${convertHexToRgba(colors.accentLight, 0.065)};
+    background-color: ${hex2rgba(colors.accentLight, 0.065)};
 
     div,
     p {
@@ -190,21 +181,16 @@ const Title = styled.h2`
 `;
 
 /* eslint-disable react/jsx-closing-tag-location */
-const ResultItem = ({ post, index }) => (
+const ResultItem = ({post, index}) => (
   <Item to={post.path}>
     <figure>
-      <img
-        src={post.titleImage.childImageSharp.resize.src}
-        alt={post.imageAlt}
-      />
+      <img src={post.titleImage.childImageSharp.resize.src} alt={post.imageAlt} />
     </figure>
     <div>
       <Index>{integerToRoman(index + 1)}</Index>
       <Title>{post.title}</Title>
       {post.type === `article` && <span className="dot-separator" />}
-      {post.type === `article` && (
-        <small className="date-published">{post.date}</small>
-      )}
+      {post.type === `article` && <small className="date-published">{post.date}</small>}
     </div>
     <p>{post.excerpt}</p>
   </Item>
@@ -229,13 +215,15 @@ ResultItem.defaultProps = {
 };
 
 /* eslint-disable react/jsx-closing-tag-location */
-const ResultList = ({ category, posts }) => (
+const ResultList = ({category, posts}) => (
   <List>
-    {posts.filter(post => post.type === category).map((post, index) => (
-      <li key={post.id}>
-        <ResultItem post={post} index={index} />
-      </li>
-    ))}
+    {posts
+      .filter(post => post.type === category)
+      .map((post, index) => (
+        <li key={post.id}>
+          <ResultItem post={post} index={index} />
+        </li>
+      ))}
   </List>
 );
 /* eslint-enable react/jsx-closing-tag-location */
@@ -265,9 +253,7 @@ class PostList extends Component {
       <div>
         <ButtonContainer>
           <Button
-            className={
-              this.state.displayCategory === `project` ? `active` : null
-            }
+            className={this.state.displayCategory === `project` ? `active` : null}
             aria-pressed={this.state.displayCategory === `project`}
             aria-label="List all projects"
             onClick={() => this.setCategory(`project`)}>
@@ -275,20 +261,14 @@ class PostList extends Component {
           </Button>
 
           <Button
-            className={
-              this.state.displayCategory === `article` ? `active` : null
-            }
+            className={this.state.displayCategory === `article` ? `active` : null}
             aria-pressed={this.state.displayCategory === `article`}
             aria-label="List all articles"
             onClick={() => this.setCategory(`article`)}>
             {`Articles`}
           </Button>
 
-          <SearchButton
-            role="button"
-            aria-label="Navigate to search page"
-            title="Navigate to search page"
-            to="search">
+          <SearchButton role="button" aria-label="Navigate to search page" title="Navigate to search page" to="search">
             <svg
               width="25px"
               height="25px"
@@ -306,10 +286,7 @@ class PostList extends Component {
             </svg>
           </SearchButton>
         </ButtonContainer>
-        <ResultList
-          category={this.state.displayCategory}
-          posts={this.props.posts}
-        />
+        <ResultList category={this.state.displayCategory} posts={this.props.posts} />
       </div>
     );
   }

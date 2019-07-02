@@ -3,8 +3,8 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-import ExternalLink from '../ExternalLink';
-import { breakpoints } from '../../css/variables';
+import ExternalLink from '../ExternalLink/ExternalLink';
+import {breakpoints} from '../../css/variables';
 
 const Root = styled.div`
   text-align: center;
@@ -29,10 +29,7 @@ const PostFooter = props => (
   <Root>
     <em>
       {`Got a question, suggestion, or correction? `}
-      <ExternalLink
-        to={`https://github.com/harrisjt/harrisjt.com/blob/master/src/${
-          props.githubUrl
-        }`}>
+      <ExternalLink to={`https://github.com/harrisjt/harrisjt.com/blob/master/src/${props.githubUrl}`}>
         Open an Issue
       </ExternalLink>
       .

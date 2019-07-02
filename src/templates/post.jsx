@@ -1,26 +1,27 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import {graphql} from 'gatsby';
 
-import PostFooter from '../components/post/PostFooter';
+import hex2rgba from 'hex2rgba';
+import PostFooter from '../components/PostFooter';
 import Navigation from '../components/Navigation';
 import TitleAndMetaTags from '../components/TitleAndMetaTags';
 import Header from '../components/Header';
-import { colors, convertHexToRgba, linkStyle, sizes } from '../css/variables';
-import { fadeIn, moveUp } from '../css/animations';
-import PostHeader from '../components/post/PostHeader';
+import {colors, linkStyle, sizes} from '../css/variables';
+import {fadeIn, moveUp} from '../css/animations';
+import PostHeader from '../components/PostHeader';
+import {useSiteMetadata} from '../utils/useSiteMetadata';
 
 const PostContainer = styled.article`
   margin: ${sizes.small} auto;
   padding: ${sizes.small};
   background: #fff;
   border-radius: 7px;
-  box-shadow: 0 4px 6px ${convertHexToRgba(colors.accent, 0.075)},
-    0 1px 3px rgba(0, 0, 0, 0.075);
+  box-shadow: 0 4px 6px ${hex2rgba(colors.accent, 0.075)}, 0 1px 3px rgba(0, 0, 0, 0.075);
   max-width: calc(745px + ${sizes.small});
   will-change: opacity;
-  animation: ${fadeIn} 400ms cubic-bezier(0.67, 0, 0.67, 1),
-    ${moveUp} 450ms cubic-bezier(0.33, 0, 0, 1);
+  animation: ${fadeIn} 400ms cubic-bezier(0.67, 0, 0.67, 1), ${moveUp} 450ms cubic-bezier(0.33, 0, 0, 1);
 
   a {
     ${linkStyle};
@@ -40,16 +41,14 @@ const PostContent = styled.div`
     margin: 2.25rem auto;
     border-radius: 50%;
     background: ${colors.accentDark};
-    box-shadow: calc(6px * 5) 0 0 0 ${colors.accentDark},
-      calc(6px * -5) 0 0 0 ${colors.accentDark};
+    box-shadow: calc(6px * 5) 0 0 0 ${colors.accentDark}, calc(6px * -5) 0 0 0 ${colors.accentDark};
   }
 `;
 
-const Post = ({ data, pathContext }) => {
+const Post = ({data, pathContext}) => {
   const post = data.markdownRemark;
-  const meta = data.site.siteMetadata;
-  const seoImage =
-    meta.siteUrl + post.frontmatter.seoImage.childImageSharp.resize.src;
+  const {author, description, facebookAppId, title, twitterHandle, siteUrl, issueUrl} = useSiteMetadata();
+  const seoImage = siteUrl + post.frontmatter.seoImage.childImageSharp.resize.src;
 
   const prev = pathContext.prev ? pathContext.prev.fields.path : null;
   const next = pathContext.next ? pathContext.next.fields.path : null;
@@ -58,22 +57,22 @@ const Post = ({ data, pathContext }) => {
   return (
     <div>
       <TitleAndMetaTags
-        author={meta.author}
+        author={author}
         date={post.frontmatter.date}
-        description={meta.description}
-        facebookAppId={meta.facebookAppId}
-        image={{ url: seoImage, width: 800, height: 600 }}
+        description={description}
+        facebookAppId={facebookAppId}
+        image={{url: seoImage, width: 800, height: 600}}
         logo={{
-          url: `${meta.siteUrl}/logo-share.png`,
+          url: `${siteUrl}/logo-share.png`,
           width: 1024,
           height: 1024,
         }}
-        publisher={meta.author}
+        publisher={author}
         searchDescription={post.excerpt}
-        title={`${post.frontmatter.title} – ${meta.title}`}
-        twitterHandle={meta.twitterHandle}
+        title={`${post.frontmatter.title} – ${title}`}
+        twitterHandle={twitterHandle}
         type="article"
-        url={meta.siteUrl + post.fields.path}
+        url={siteUrl + post.fields.path}
       />
       <Header />
       <Navigation previous={prev} next={next} />
@@ -82,17 +81,15 @@ const Post = ({ data, pathContext }) => {
           title={post.frontmatter.title}
           type={post.frontmatter.type}
           date={post.frontmatter.date}
-          dateModified={
-            post.frontmatter.dateModified ? post.frontmatter.dateModified : null
-          }
+          dateModified={post.frontmatter.dateModified ? post.frontmatter.dateModified : null}
           timeToRead={post.timeToRead ? post.timeToRead : null}
           role={post.frontmatter.role ? post.frontmatter.role : null}
         />
-        <PostContent dangerouslySetInnerHTML={{ __html: post.html }} />
+        <PostContent dangerouslySetInnerHTML={{__html: post.html}} />
         <PostFooter
           nextTitle={nextTitle}
           next={next}
-          issueUrl={meta.issueUrl}
+          issueUrl={issueUrl}
           githubUrl={post.fileAbsolutePath.split(`/src/`)[1]}
         />
       </PostContainer>
@@ -103,7 +100,6 @@ const Post = ({ data, pathContext }) => {
 Post.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.object.isRequired,
-    site: PropTypes.object.isRequired,
   }).isRequired,
   pathContext: PropTypes.shape({
     prev: PropTypes.object,
@@ -116,17 +112,6 @@ export default Post;
 // eslint-disable-next-line no-undef
 export const pageQuery = graphql`
   query PostBySlug($slug: String!) {
-    site {
-      siteMetadata {
-        author
-        description
-        facebookAppId
-        title
-        twitterHandle
-        siteUrl
-        issueUrl
-      }
-    }
     markdownRemark(fields: {slug: {eq: $slug}}) {
       fileAbsolutePath
       html

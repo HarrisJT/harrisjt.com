@@ -5,7 +5,7 @@ import Link from 'gatsby-link';
 import Container from '../components/Container';
 import TitleAndMetaTags from '../components/TitleAndMetaTags';
 import Header from '../components/Header';
-import { linkStyle, sizes } from '../css/variables';
+import {linkStyle, sizes} from '../css/variables';
 
 const InfoContainer = styled(Container)`
   margin: ${sizes.small} auto;
@@ -35,11 +35,11 @@ const PageNotFound = () => (
         {` or the `}
         <Link to="/" href="/">
           home page
-        </Link>.
+        </Link>
+        .
       </p>
       <em>
-        Please contact the owner of the site that linked you to this URL and let
-        them know that their link is broken.
+        Please contact the owner of the site that linked you to this URL and let them know that their link is broken.
       </em>
     </InfoContainer>
   </div>

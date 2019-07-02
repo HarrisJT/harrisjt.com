@@ -47,14 +47,14 @@ The social media campaigns were a fantastic success with my thunderclap reaching
 
 ## Publicity
 
-* [New York Times (Front Page)](http://www.nytimes.com/2015/09/04/us/politics/bernie-sanders-presidential-campaign-tech-supporters.html)
-* [Cosmopolitan](http://www.cosmopolitan.com/politics/news/a44879/feelthebern-bernie-sanders-reddit/)
-* [Wall Street Journal](http://blogs.wsj.com/washwire/2015/10/02/how-bernie-sanders-tech-volunteers-code-the-bern/)
-* [MSNBC Live](http://www.msnbc.com/the-briefing/watch/-feel-the-bern--movement-gaining-energy-510316099999)
-* [MSNBC Live #2](https://www.youtube.com/watch?v=XpdOds5ARGw)
-* [Wired](http://www.wired.com/2015/10/on-debate-night-sanders-online-army-is-ready-for-battle/)
-* [Mic.](http://mic.com/articles/124761/how-bernie-sanders-online-army-is-using-reddit-to-fuel-his-2016-campaign-surge#.UF6oMue7X)
-* [Elle](http://www.elle.com/culture/career-politics/news/a30671/women-behind-feel-the-bern/)
+- [New York Times (Front Page)](http://www.nytimes.com/2015/09/04/us/politics/bernie-sanders-presidential-campaign-tech-supporters.html)
+- [Cosmopolitan](http://www.cosmopolitan.com/politics/news/a44879/feelthebern-bernie-sanders-reddit/)
+- [Wall Street Journal](http://blogs.wsj.com/washwire/2015/10/02/how-bernie-sanders-tech-volunteers-code-the-bern/)
+- [MSNBC Live](http://www.msnbc.com/the-briefing/watch/-feel-the-bern--movement-gaining-energy-510316099999)
+- [MSNBC Live #2](https://www.youtube.com/watch?v=XpdOds5ARGw)
+- [Wired](http://www.wired.com/2015/10/on-debate-night-sanders-online-army-is-ready-for-battle/)
+- [Mic.](http://mic.com/articles/124761/how-bernie-sanders-online-army-is-using-reddit-to-fuel-his-2016-campaign-surge#.UF6oMue7X)
+- [Elle](http://www.elle.com/culture/career-politics/news/a30671/women-behind-feel-the-bern/)
 
 ## Results
 

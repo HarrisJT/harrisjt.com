@@ -4,19 +4,19 @@ import Helmet from 'react-helmet';
 
 const TitleAndMetaTags = props => {
   const tags = [
-    { name: `description`, content: props.searchDescription },
-    { property: `fb:app_id`, content: props.facebookAppId },
-    { property: `og:description`, content: props.description },
-    { property: `og:image`, content: props.image.url },
-    { property: `og:title`, content: props.title },
-    { property: `og:type`, content: props.type },
-    { property: `og:url`, content: props.url },
-    { name: `twitter:card`, content: `summary` },
-    { name: `twitter:creator`, content: props.twitterHandle },
-    { name: `twitter:site`, content: props.twitterHandle },
-    { name: `twitter:title`, content: props.title },
-    { name: `twitter:description`, content: props.description },
-    { name: `twitter:image`, content: props.image.url },
+    {name: `description`, content: props.searchDescription},
+    {property: `fb:app_id`, content: props.facebookAppId},
+    {property: `og:description`, content: props.description},
+    {property: `og:image`, content: props.image.url},
+    {property: `og:title`, content: props.title},
+    {property: `og:type`, content: props.type},
+    {property: `og:url`, content: props.url},
+    {name: `twitter:card`, content: `summary`},
+    {name: `twitter:creator`, content: props.twitterHandle},
+    {name: `twitter:site`, content: props.twitterHandle},
+    {name: `twitter:title`, content: props.title},
+    {name: `twitter:description`, content: props.description},
+    {name: `twitter:image`, content: props.image.url},
   ];
 
   const schemaOrg = {
@@ -61,11 +61,7 @@ const TitleAndMetaTags = props => {
 
       <link href={props.url} rel="canonical" />
 
-      {schemaOrg[props.type] && (
-        <script type="application/ld+json">
-          {JSON.stringify(schemaOrg[props.type])}
-        </script>
-      )}
+      {schemaOrg[props.type] && <script type="application/ld+json">{JSON.stringify(schemaOrg[props.type])}</script>}
     </Helmet>
   );
 };
@@ -121,9 +117,7 @@ TitleAndMetaTags.defaultProps = {
     height: 1024,
   },
   publisher: `HarrisJT`,
-  searchDescription:
-    `Software developer and designer HarrisJT's website. ` +
-    `Specializing in performance, UX, and architecture.`,
+  searchDescription: `Software developer and designer HarrisJT's website. Specializing in performance, UX, and architecture.`,
   title: `HarrisJT`,
   twitterHandle: null,
   type: `website`,

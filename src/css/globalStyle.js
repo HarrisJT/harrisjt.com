@@ -1,8 +1,8 @@
-import { injectGlobal } from 'styled-components';
-import { breakpoints, colors, convertHexToRgba, fonts } from './variables';
+import {createGlobalStyle} from 'styled-components';
+import hex2rgba from 'hex2rgba';
+import {breakpoints, colors, fonts} from './variables';
 
-// eslint-disable-next-line no-unused-expressions
-injectGlobal`
+export const GlobalStyle = createGlobalStyle`
  :root {
     /* Base sizes */
     --baseSizeSmall: 100%; // 16px
@@ -166,7 +166,7 @@ injectGlobal`
   }
 
   ::selection {
-    background-color: ${convertHexToRgba(colors.accentLight, 0.75)};
+    background-color: ${hex2rgba(colors.accentLight, 0.75)};
     color: #fff;
   }
 `;

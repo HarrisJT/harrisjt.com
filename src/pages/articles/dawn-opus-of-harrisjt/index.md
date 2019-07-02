@@ -20,9 +20,9 @@ Well, React together with Gatsby mostly, but also with the help of Styled-Compon
 
 The [complete code](https://github.com/harrisjt/harrisjt.com) for this website is available to anyone with internet access. I have always made my portfolio public because this serves multiple purposes:
 
-* This site is a public display of myself and making the source code fully accessible is an extension of that
-* The idea that at any time someone can comb through my code keeps me in check
-* I’m proud of where this site is at!
+- This site is a public display of myself and making the source code fully accessible is an extension of that
+- The idea that at any time someone can comb through my code keeps me in check
+- I’m proud of where this site is at!
 
 Plus I _love_ Git so any practice I get using it is well received!
 

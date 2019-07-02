@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
@@ -9,37 +9,42 @@ const Button = styled.a`
 const buildWindow = service => {
   const serviceParams = service.params;
   const keys = Object.keys(serviceParams);
+  // eslint-disable-next-line prefer-destructuring
   serviceParams[Object.keys(serviceParams)[0]] = document.title.split(`–`)[0];
   let str = keys.length > 0 ? `?` : ``;
-  for (let i = 0; i < keys.length; i++) {
+  // eslint-disable-next-line no-restricted-syntax
+  for (const element of keys) {
     if (str !== `?`) {
       str += `&`;
     }
 
-    if (serviceParams[keys[i]]) {
-      str += `${keys[i]}=${encodeURIComponent(serviceParams[keys[i]])}`;
+    if (serviceParams[element]) {
+      str += `${element}=${encodeURIComponent(serviceParams[element])}`;
     }
   }
 
   const url = service.shareUrl + str;
 
   // Fixes dual-screen position
-  const dualScreenLeft =
-    window.screenLeft !== undefined ? window.screenLeft : window.screenX;
-  const dualScreenTop =
-    window.screenTop !== undefined ? window.screenTop : window.screenY;
+  const {screenX, open, screenLeft, screenTop, innerHeight, innerWidth, screenY} = window;
+  const dualScreenLeft = screenLeft !== undefined ? screenLeft : screenX;
+  const dualScreenTop = screenTop !== undefined ? screenTop : screenY;
 
   // Find a width that works
-  const width = window.innerWidth
-    ? window.innerWidth
-    : document.documentElement.clientWidth
-      ? document.documentElement.clientWidth
-      : screen.width;
-  const height = window.innerHeight
-    ? window.innerHeight
-    : document.documentElement.clientHeight
-      ? document.documentElement.clientHeight
-      : screen.height;
+  let width;
+
+  if (innerWidth) {
+    width = innerWidth;
+  } else {
+    width = document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width; // eslint-disable-line no-restricted-globals
+  }
+
+  let height;
+  if (innerHeight) {
+    height = innerHeight;
+  } else {
+    height = document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height; // eslint-disable-line no-restricted-globals
+  }
 
   // Center positions
   const left = width / 2 - 550 / 2 + dualScreenLeft;
@@ -61,12 +66,12 @@ const buildWindow = service => {
     chrome: `yes`,
   };
 
-  return window.open(
+  return open(
     url,
     ``,
     Object.keys(config)
       .map(key => `${key}=${config[key]}`)
-      .join(`, `),
+      .join(`, `)
   );
 };
 

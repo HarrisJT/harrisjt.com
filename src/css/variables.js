@@ -1,3 +1,5 @@
+import hex2rgba from 'hex2rgba';
+
 const colors = {
   background: `#f9f9ff`,
   border: `#c7c7cd`,
@@ -8,37 +10,6 @@ const colors = {
   accentDark: `#555abf`,
   accentLight: `#7795f8`,
 };
-
-function convertHexToRgba(hex, alpha) {
-  if (hex[0] === `#`) {
-    hex = hex.slice(1);
-  }
-
-  // expand shorthand
-  if (hex.length === 3) {
-    hex = hex.split(``);
-    hex.splice(2, 0, hex[2]);
-    hex.splice(1, 0, hex[1]);
-    hex.splice(0, 0, hex[0]);
-    hex = hex.join(``);
-  }
-
-  const values = [
-    parseInt(hex.slice(0, 2), 16),
-    parseInt(hex.slice(2, 4), 16),
-    parseInt(hex.slice(4, 6), 16),
-  ];
-
-  alpha = typeof alpha === `number` ? alpha : parseFloat(alpha);
-
-  if (alpha >= 0 && alpha <= 1) {
-    values.push(alpha);
-  } else {
-    values.push(1);
-  }
-
-  return `rgba(${values.join(`,`)})`;
-}
 
 const fonts = {
   heading: `
@@ -69,7 +40,7 @@ const breakpoints = {
 
 const linkStyle = `
     color: ${colors.accentDark};
-    border-bottom: 2px solid ${convertHexToRgba(colors.accent, 0.75)};
+    border-bottom: 2px solid ${hex2rgba(colors.accent, 0.75)};
     transition: border-color 150ms ease-out, color 100ms ease;
     
     &:hover {
@@ -78,4 +49,4 @@ const linkStyle = `
     }
 `;
 
-export { colors, convertHexToRgba, fonts, sizes, breakpoints, linkStyle };
+export {colors, fonts, sizes, breakpoints, linkStyle};
