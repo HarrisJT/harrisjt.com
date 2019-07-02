@@ -30,7 +30,8 @@
     "lint": "eslint --cache --fix \"**/*.{js,jsx,ts,tsx}\"",
     "format": "prettier --write \"**/*.{css,html,js,jsx,json,md,scss,ts,tsx,yaml,yml}\"",
     "snyk-protect": "snyk protect",
-    "prepare": "npm run snyk-protect"
+    "prepare": "npm run snyk-protect",
+    "release": "release-it"
   },
   "dependencies": {
     "babel-plugin-styled-components": "1.10.6",
