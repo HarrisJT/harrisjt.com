@@ -1,15 +1,24 @@
 {
-  "extends": [
-    "config:base"
-  ],
+  "extends": ["config:base", ":automergeMinor", "group:linters"],
   "automerge": true,
   "major": {
-    "automerge": false
+    "automerge": false,
+    "packageRules": [
+      {
+        "enabled": false,
+        "depTypeList": ["devDependencies"]
+      }
+    ]
   },
   "packageRules": [
     {
-      "packagePatterns": ["^eslint", "^prettier"],
-      "groupName": "linters"
+      "depTypeList": ["dependencies"],
+      "semanticCommitType": "build"
+    },
+    {
+      "packageNames": ["semantic-release"],
+      "semanticCommitType": "build"
     }
-  ]
+  ],
+  "rangeStrategy": "replace"
 }

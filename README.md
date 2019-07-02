@@ -50,5 +50,5 @@ To run this project, you will need [Git](https://git-scm.com/downloads) and [Nod
 
 ## Troubleshooting
 
-* `npm run purge` to delete the previously generated gatsby build files
-* Reinstall the dependencies by deleting the `node_modules` folder and running `npm i`
+- `npm run purge` to delete the previously generated gatsby build files
+- Reinstall the dependencies by deleting the `node_modules` folder and running `npm i`

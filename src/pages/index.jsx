@@ -1,20 +1,32 @@
-import React from 'react';
+import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
+import {graphql} from 'gatsby';
 import styled from 'styled-components';
 import PostList from '../components/PostList';
 import Introduction from '../components/Introduction';
 import TitleAndMetaTags from '../components/TitleAndMetaTags';
-import { fadeIn, moveRight } from '../css/animations';
+import Layout from '../components/Layout';
+import {fadeIn, moveRight} from '../css/animations';
+import {useSiteMetadata} from '../utils/useSiteMetadata';
 
 const Root = styled.div`
-  animation: ${fadeIn} 450ms cubic-bezier(0.67, 0, 0.67, 1),
-    ${moveRight} 500ms cubic-bezier(0.33, 0, 0, 1);
+  animation: ${fadeIn} 450ms cubic-bezier(0.67, 0, 0.67, 1), ${moveRight} 500ms cubic-bezier(0.33, 0, 0, 1);
 `;
 
-const Index = ({ data }) => {
-  const meta = data.site.siteMetadata;
-  const posts = data.allMarkdownRemark.edges.map(({ node }) => {
-    return {
+class Home extends PureComponent {
+  static propTypes = {
+    data: PropTypes.shape({
+      allMarkdownRemark: PropTypes.shape({
+        edges: PropTypes.array.isRequired,
+      }),
+    }).isRequired,
+  };
+
+  render() {
+    const {data} = this.props;
+
+    const {author, description, facebookAppId, siteUrl, title, twitterHandle, email} = useSiteMetadata();
+    const posts = data.allMarkdownRemark.edges.map(({node}) => ({
       date: node.frontmatter.date,
       excerpt: node.excerpt,
       id: node.id,
@@ -23,60 +35,44 @@ const Index = ({ data }) => {
       path: node.fields.path,
       title: node.frontmatter.title,
       type: node.frontmatter.type,
-    };
-  });
+    }));
 
-  return (
-    <Root>
-      <TitleAndMetaTags
-        author={meta.author}
-        description={meta.description}
-        facebookAppId={meta.facebookAppId}
-        image={{
-          url: `${meta.siteUrl}/logo-share.png`,
-          width: 1024,
-          height: 1024,
-        }}
-        logo={{
-          url: `${meta.siteUrl}/logo-share.png`,
-          width: 1024,
-          height: 1024,
-        }}
-        publisher={meta.title}
-        title={meta.title}
-        twitterHandle={meta.twitterHandle}
-        type="website"
-        url={meta.siteUrl}
-      />
-      <Introduction email={meta.email} />
-      <PostList posts={posts} />
-    </Root>
-  );
-};
+    return (
+      <Layout>
+        <Root>
+          <TitleAndMetaTags
+            author={author}
+            description={description}
+            facebookAppId={facebookAppId}
+            image={{
+              url: `${siteUrl}/logo-share.png`,
+              width: 1024,
+              height: 1024,
+            }}
+            logo={{
+              url: `${siteUrl}/logo-share.png`,
+              width: 1024,
+              height: 1024,
+            }}
+            publisher={title}
+            title={title}
+            twitterHandle={twitterHandle}
+            type="website"
+            url={siteUrl}
+          />
+          <Introduction email={email} />
+          <PostList posts={posts} />
+        </Root>
+      </Layout>
+    );
+  }
+}
 
-Index.propTypes = {
-  data: PropTypes.shape({
-    allMarkdownRemark: PropTypes.object.isRequired,
-    site: PropTypes.object.isRequired,
-  }).isRequired,
-};
-
-export default Index;
+export default Home;
 
 // eslint-disable-next-line no-undef
 export const pageQuery = graphql`
   query getPosts {
-    site {
-      siteMetadata {
-        author
-        description
-        facebookAppId
-        title
-        twitterHandle
-        siteUrl
-        email
-      }
-    }
     allMarkdownRemark(
       limit: 100
       filter: {frontmatter: {draft: {ne: true}}}

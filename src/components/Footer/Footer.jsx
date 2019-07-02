@@ -2,10 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-import { breakpoints, linkStyle, sizes } from '../css/variables';
-import Container from './Container';
-import ExternalLink from './ExternalLink';
-import ShareButton from './ShareButton';
+import {breakpoints, linkStyle, sizes} from '../../css/variables';
+import Container from '../Container/Container';
+import ExternalLink from '../ExternalLink/ExternalLink';
+import ShareButton from '../ShareButton/ShareButton';
 
 const Root = styled.div`
   padding: ${sizes.medium} 2rem;
@@ -86,22 +86,13 @@ const Footer = props => {
 
         <Info>
           {`Like my work? Let’s make beautiful things together, contact me on `}
-          <ExternalLink to={`https://twitter.com/${props.twitterHandle}`}>
-            Twitter
-          </ExternalLink>
+          <ExternalLink to={`https://twitter.com/${props.twitterHandle}`}>Twitter</ExternalLink>
           {`, `}
-          <ExternalLink to={`https://github.com/${props.githubHandle}`}>
-            GitHub
-          </ExternalLink>
+          <ExternalLink to={`https://github.com/${props.githubHandle}`}>GitHub</ExternalLink>
           {`, `}
-          <ExternalLink
-            to={`https://www.linkedin.com/in/${props.linkedinHandle}`}>
-            LinkedIn
-          </ExternalLink>
+          <ExternalLink to={`https://www.linkedin.com/in/${props.linkedinHandle}`}>LinkedIn</ExternalLink>
           {`, or `}
-          <ExternalLink to={`mailto:${props.email}`}>
-            email: {props.email}
-          </ExternalLink>
+          <ExternalLink to={`mailto:${props.email}`}>email: {props.email}</ExternalLink>
         </Info>
       </Container>
     </Root>

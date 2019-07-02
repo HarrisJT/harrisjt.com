@@ -1,4 +1,4 @@
-import { keyframes } from 'styled-components';
+import {keyframes} from 'styled-components';
 
 const fadeIn = keyframes`
   from {
@@ -27,4 +27,4 @@ const moveUp = keyframes`
   }
 `;
 
-export { fadeIn, moveRight, moveUp };
+export {fadeIn, moveRight, moveUp};

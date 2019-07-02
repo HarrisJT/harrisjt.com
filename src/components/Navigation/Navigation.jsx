@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-import { colors } from '../css/variables';
+import {colors} from '../../css/variables';
 
 const Root = styled.div`
   position: fixed;
@@ -38,10 +38,7 @@ const Anchor = styled(Link)`
 const Navigation = props => (
   <Root>
     {props.previous && (
-      <Anchor
-        to={props.previous}
-        aria-label="Navigate to previous page"
-        title="Navigate to previous post">
+      <Anchor to={props.previous} aria-label="Navigate to previous page" title="Navigate to previous post">
         <figure className="icon">
           <svg
             width="22px"
@@ -61,10 +58,7 @@ const Navigation = props => (
         </figure>
       </Anchor>
     )}
-    <Anchor
-      to="/"
-      aria-label="Navigate to homepage"
-      title="Navigate to homepage">
+    <Anchor to="/" aria-label="Navigate to homepage" title="Navigate to homepage">
       <figure className="icon">
         <svg
           width="22px"
@@ -84,10 +78,7 @@ const Navigation = props => (
       </figure>
     </Anchor>
     {!props.searchPage && (
-      <Anchor
-        to="/search"
-        aria-label="Navigate to search page"
-        title="Navigate to search page">
+      <Anchor to="/search" aria-label="Navigate to search page" title="Navigate to search page">
         <figure className="icon">
           <svg
             width="22px"
@@ -108,10 +99,7 @@ const Navigation = props => (
       </Anchor>
     )}
     {props.next && (
-      <Anchor
-        to={props.next}
-        aria-label="Navigate to next page"
-        title="Navigate to next post">
+      <Anchor to={props.next} aria-label="Navigate to next page" title="Navigate to next post">
         <figure className="icon">
           <svg
             width="22px"
