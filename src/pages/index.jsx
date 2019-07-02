@@ -7,7 +7,6 @@ import Introduction from '../components/Introduction';
 import TitleAndMetaTags from '../components/TitleAndMetaTags';
 import Layout from '../components/Layout';
 import {fadeIn, moveRight} from '../css/animations';
-import {useSiteMetadata} from '../utils/useSiteMetadata';
 
 const Root = styled.div`
   animation: ${fadeIn} 450ms cubic-bezier(0.67, 0, 0.67, 1), ${moveRight} 500ms cubic-bezier(0.33, 0, 0, 1);
@@ -19,13 +18,15 @@ class Home extends PureComponent {
       allMarkdownRemark: PropTypes.shape({
         edges: PropTypes.array.isRequired,
       }),
+      site: PropTypes.object.isRequired,
     }).isRequired,
   };
 
   render() {
     const {data} = this.props;
 
-    const {author, description, facebookAppId, siteUrl, title, twitterHandle, email} = useSiteMetadata();
+    const {author, description, facebookAppId, siteUrl, title, twitterHandle, email} = data.site.siteMetadata;
+
     const posts = data.allMarkdownRemark.edges.map(({node}) => ({
       date: node.frontmatter.date,
       excerpt: node.excerpt,
@@ -73,6 +74,17 @@ export default Home;
 // eslint-disable-next-line no-undef
 export const pageQuery = graphql`
   query getPosts {
+    site {
+      siteMetadata {
+        author
+        description
+        facebookAppId
+        title
+        twitterHandle
+        siteUrl
+        email
+      }
+    }
     allMarkdownRemark(
       limit: 100
       filter: {frontmatter: {draft: {ne: true}}}

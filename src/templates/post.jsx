@@ -12,6 +12,7 @@ import {colors, linkStyle, sizes} from '../css/variables';
 import {fadeIn, moveUp} from '../css/animations';
 import PostHeader from '../components/PostHeader';
 import {useSiteMetadata} from '../utils/useSiteMetadata';
+import Layout from '../components/Layout';
 
 const PostContainer = styled.article`
   margin: ${sizes.small} auto;
@@ -55,7 +56,7 @@ const Post = ({data, pathContext}) => {
   const nextTitle = next ? pathContext.next.frontmatter.title : null;
 
   return (
-    <div>
+    <React.Fragment>
       <TitleAndMetaTags
         author={author}
         date={post.frontmatter.date}
@@ -76,24 +77,26 @@ const Post = ({data, pathContext}) => {
       />
       <Header />
       <Navigation previous={prev} next={next} />
-      <PostContainer>
-        <PostHeader
-          title={post.frontmatter.title}
-          type={post.frontmatter.type}
-          date={post.frontmatter.date}
-          dateModified={post.frontmatter.dateModified ? post.frontmatter.dateModified : null}
-          timeToRead={post.timeToRead ? post.timeToRead : null}
-          role={post.frontmatter.role ? post.frontmatter.role : null}
-        />
-        <PostContent dangerouslySetInnerHTML={{__html: post.html}} />
-        <PostFooter
-          nextTitle={nextTitle}
-          next={next}
-          issueUrl={issueUrl}
-          githubUrl={post.fileAbsolutePath.split(`/src/`)[1]}
-        />
-      </PostContainer>
-    </div>
+      <Layout>
+        <PostContainer>
+          <PostHeader
+            title={post.frontmatter.title}
+            type={post.frontmatter.type}
+            date={post.frontmatter.date}
+            dateModified={post.frontmatter.dateModified ? post.frontmatter.dateModified : null}
+            timeToRead={post.timeToRead ? post.timeToRead : null}
+            role={post.frontmatter.role ? post.frontmatter.role : null}
+          />
+          <PostContent dangerouslySetInnerHTML={{__html: post.html}} />
+          <PostFooter
+            nextTitle={nextTitle}
+            next={next}
+            issueUrl={issueUrl}
+            githubUrl={post.fileAbsolutePath.split(`/src/`)[1]}
+          />
+        </PostContainer>
+      </Layout>
+    </React.Fragment>
   );
 };
 

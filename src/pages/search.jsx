@@ -9,7 +9,7 @@ import Header from '../components/Header';
 import Navigation from '../components/Navigation';
 import TitleAndMetaTags from '../components/TitleAndMetaTags';
 import {fadeIn, moveUp} from '../css/animations';
-import {useSiteMetadata} from '../utils/useSiteMetadata';
+import Layout from '../components/Layout';
 
 const Form = styled.div`
   display: flex;
@@ -55,21 +55,6 @@ const SearchResultWrapper = styled.div`
   margin: 10px 2vw;
   transition: background-color 100ms ease;
 
-  div {
-    display: flex;
-    align-items: center;
-    padding-top: 1rem;
-  }
-
-  h2 {
-    margin: 0;
-    transition: opacity 100ms ease;
-  }
-
-  .date-published {
-    color: ${colors.textLight};
-  }
-
   p {
     color: ${colors.textLight};
     margin: 5px 0 0;
@@ -85,31 +70,46 @@ const SearchResultWrapper = styled.div`
   }
 `;
 
+const SearchResultHeader = styled.div`
+  display: flex;
+  align-items: center;
+  padding-top: 1rem;
+
+  h2 {
+    margin: 0;
+    transition: opacity 100ms ease;
+  }
+
+  .date-published {
+    color: ${colors.textLight};
+  }
+`;
+
 const pagesContaining = term => x =>
   x.node.frontmatter.title.toLowerCase().includes(term.toLowerCase()) ||
   x.node.excerpt.toLowerCase().includes(term.toLowerCase()) ||
   !term;
 
 const SearchResults = ({term, pages}) => (
-  <div>
+  <React.Fragment>
     {pages
       .filter(pagesContaining(term))
       .map(page => (
         <SearchResultWrapper key={page.node.id}>
           <Link to={page.node.fields.slug}>
-            <div>
+            <SearchResultHeader>
               <h2>{page.node.frontmatter.title}</h2>
               {page.node.frontmatter.type === `article` && <span className="dot-separator" />}
               {page.node.frontmatter.type === `article` && (
                 <span className="date-published">{page.node.frontmatter.date}</span>
               )}
-            </div>
+            </SearchResultHeader>
             <p>{page.node.excerpt}</p>
           </Link>
         </SearchResultWrapper>
       ))
       .slice(0, 15)}
-  </div>
+  </React.Fragment>
 );
 
 SearchResults.propTypes = {
@@ -125,6 +125,7 @@ class Search extends Component {
   static propTypes = {
     data: PropTypes.shape({
       allMarkdownRemark: PropTypes.object.isRequired,
+      site: PropTypes.object.isRequired,
     }).isRequired,
   };
 
@@ -149,10 +150,10 @@ class Search extends Component {
   };
 
   render() {
-    const {author, description, facebookAppId, title, twitterHandle, siteUrl} = useSiteMetadata();
+    const {author, description, facebookAppId, title, twitterHandle, siteUrl} = this.props.data.site.siteMetadata;
 
     return (
-      <div>
+      <React.Fragment>
         <TitleAndMetaTags
           author={author}
           description={description}
@@ -170,19 +171,21 @@ class Search extends Component {
         />
         <Header />
         <Navigation searchPage />
-        <Form>
-          <Input
-            type="text"
-            aria-label="Search"
-            onChange={this.searchHandler}
-            onKeyDown={this.handleEnter}
-            placeholder="Search..."
-            title="Type search term here"
-            autoFocus
-          />
-          <SearchResults term={this.state.term} pages={this.pages} />
-        </Form>
-      </div>
+        <Layout>
+          <Form>
+            <Input
+              type="text"
+              aria-label="Search"
+              onChange={this.searchHandler}
+              onKeyDown={this.handleEnter}
+              placeholder="Search..."
+              title="Type search term here"
+              autoFocus
+            />
+            <SearchResults term={this.state.term} pages={this.pages} />
+          </Form>
+        </Layout>
+      </React.Fragment>
     );
   }
 }
@@ -191,6 +194,17 @@ export default Search;
 
 export const pageQuery = graphql`
   query SearchQuery {
+    site {
+      siteMetadata {
+        author
+        description
+        facebookAppId
+        title
+        twitterHandle
+        siteUrl
+        email
+      }
+    }
     allMarkdownRemark(
       limit: 1000
       filter: {frontmatter: {draft: {ne: true}}}
