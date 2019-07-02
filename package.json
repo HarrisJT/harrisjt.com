@@ -89,20 +89,12 @@
     "lint-staged": "^9.0.1",
     "netlify": "2.4.6",
     "npm-run-all": "4.1.5",
-    "pre-commit": "1.2.2",
     "prettier": "1.18.2",
     "release-it": "^12.3.0"
   },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
-    }
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "pre-push": "npm run clean",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
   "license": "MIT",
