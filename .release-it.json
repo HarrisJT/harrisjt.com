@@ -1,0 +1,20 @@
+{
+  "git": {
+    "changelog": "npx conventional-changelog -p angular -u",
+    "tagName": "v${version}",
+    "commitMessage": "chore: publish v${version} release",
+    "requireCleanWorkingDir": false
+  },
+  "github": {
+    "release": true
+  },
+  "npm": {
+    "publish": false
+  },
+  "plugins": {
+    "@release-it/conventional-changelog": {
+      "preset": "angular",
+      "infile": "CHANGELOG.md"
+    }
+  }
+}
