@@ -67,7 +67,7 @@
     "snyk": "^1.188.0",
     "styled-components": "4.3.2",
     "typeface-asul": "0.0.69",
-    "typeface-open-sans": "0.0.54"
+    "typeface-open-sans": "0.0.75"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.0.0",
