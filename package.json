@@ -35,7 +35,7 @@
   },
   "dependencies": {
     "babel-plugin-styled-components": "1.10.6",
-    "gatsby": "2.15.4",
+    "gatsby": "2.15.5",
     "gatsby-link": "2.2.11",
     "gatsby-plugin-catch-links": "2.1.8",
     "gatsby-plugin-favicon": "3.1.6",
