@@ -35,7 +35,7 @@
   },
   "dependencies": {
     "babel-plugin-styled-components": "1.10.6",
-    "gatsby": "2.15.19",
+    "gatsby": "2.15.20",
     "gatsby-link": "2.2.15",
     "gatsby-plugin-catch-links": "2.1.10",
     "gatsby-plugin-favicon": "3.1.6",
@@ -54,7 +54,7 @@
     "gatsby-remark-images": "3.1.23",
     "gatsby-remark-prismjs": "3.3.14",
     "gatsby-remark-smartypants": "2.1.9",
-    "gatsby-source-filesystem": "2.1.25",
+    "gatsby-source-filesystem": "2.1.26",
     "gatsby-transformer-remark": "2.6.24",
     "gatsby-transformer-sharp": "2.2.16",
     "hex2rgba": "0.0.1",
