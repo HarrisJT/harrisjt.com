@@ -64,7 +64,7 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-helmet": "5.2.1",
-    "snyk": "^1.258.2",
+    "snyk": "^1.269.0",
     "styled-components": "4.4.1",
     "typeface-asul": "0.0.69",
     "typeface-open-sans": "0.0.75"
