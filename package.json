@@ -34,7 +34,7 @@
     "release": "release-it"
   },
   "dependencies": {
-    "babel-plugin-styled-components": "1.10.6",
+    "babel-plugin-styled-components": "1.10.7",
     "gatsby": "2.19.5",
     "gatsby-link": "2.2.28",
     "gatsby-plugin-catch-links": "2.1.24",
