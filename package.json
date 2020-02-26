@@ -73,7 +73,7 @@
     "@commitlint/cli": "^8.0.0",
     "@commitlint/config-conventional": "^8.0.0",
     "@release-it/conventional-changelog": "^1.1.0",
-    "babel-eslint": "10.0.3",
+    "babel-eslint": "10.1.0",
     "commitizen": "^3.1.1",
     "cz-conventional-changelog": "^2.1.0",
     "del-cli": "2.0.0",
