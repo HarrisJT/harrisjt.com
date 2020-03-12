@@ -1,5 +1,5 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.14.0
+version: v1.14.1
 ignore: {}
 # patches apply the minimum changes required to fix a vulnerability
 patch:
@@ -24,3 +24,5 @@ patch:
         patched: '2019-12-30T21:41:16.203Z'
     - snyk > @snyk/snyk-cocoapods-plugin > @snyk/cocoapods-lockfile-parser > @snyk/dep-graph > lodash:
         patched: '2019-12-30T21:41:16.203Z'
+    - gatsby > devcert > lodash:
+        patched: '2020-03-02T09:16:42.222Z'
