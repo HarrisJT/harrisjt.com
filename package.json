@@ -66,8 +66,8 @@
     "react-helmet": "5.2.1",
     "snyk": "^1.297.3",
     "styled-components": "5.1.0",
-    "typeface-asul": "0.0.69",
-    "typeface-open-sans": "0.0.75"
+    "typeface-asul": "1.1.13",
+    "typeface-open-sans": "1.1.13"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.0.0",
