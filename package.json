@@ -60,7 +60,7 @@
     "hex2rgba": "0.0.1",
     "normalize.css": "^8.0.1",
     "prismjs": "1.20.0",
-    "prop-types": "15.7.2",
+    "prop-types": "15.8.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-helmet": "5.2.1",
